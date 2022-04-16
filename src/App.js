@@ -2,8 +2,9 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import About from "./components/About/About";
-import Home from "./components/Home/Home";
+import Home from "./components/Home/Home/Home";
 import Blogs from "./components/Blogs/Blogs";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

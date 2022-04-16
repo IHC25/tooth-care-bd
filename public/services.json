@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Dental Services",
+    "price": "300",
+    "description": "We offer services to clean and polish teeth, and recommend our patients to do so every 6 months to avoid chances of infection and cavities.",
+    "img": "https://i.ibb.co/G5kjkn2/service1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Dental Implements",
+    "price": "500",
+    "description": "We offer different procedures for replacing missing teeth e.g. dental implants, fixed caps or bridges and removable dentures.",
+    "img": "https://i.ibb.co/ng4dd8D/service2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Surgery",
+    "price": "1000",
+    "description": "Simple and surgical tooth extractions including wisdom tooth extractions are carried out with proper sterilisation care.",
+    "img": "https://i.ibb.co/g3NzWLz/service3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Teeth Whitening",
+    "price": "900",
+    "description": "Teeth cleaning, along with whitening and bleaching is done with utmost care, for a smile that looks not just beautiful, but also healthy.",
+    "img": "https://i.ibb.co/0ZqF27G/service4.jpg"
+  }
+]
