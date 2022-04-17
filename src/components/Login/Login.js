@@ -1,19 +1,60 @@
-import React from "react";
-import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Button, Form, Spinner } from "react-bootstrap";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
+
+  if (loading) {
+    return (
+      <div className="w-100 d-flex justify-content-center align-item-center">
+        <Spinner animation="border" variant="primary"></Spinner>
+      </div>
+    );
+  }
+
+  if (error) {
+    setErrorMessage(error?.message);
+  }
+
+  if (user) {
+    navigate("/home");
+  }
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    signInWithEmailAndPassword(email, password);
+  };
+
   return (
     <div className="container w-50 mx-auto my-5">
       <h2>Login</h2>
-      <Form>
+      <Form onSubmit={handleLogin}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Control type="email" placeholder="Enter email" required />
+          <Form.Control
+            name="email"
+            type="email"
+            placeholder="Enter email"
+            required
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Control type="password" placeholder="Password" required />
+          <Form.Control
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
         </Form.Group>
 
         <Button
@@ -24,6 +65,9 @@ const Login = () => {
           Login
         </Button>
       </Form>
+      <div>
+        <p className="text-danger">{errorMessage}</p>
+      </div>
       <p>
         New to Tooth Care?
         <Link
@@ -34,7 +78,7 @@ const Login = () => {
         </Link>
         <button className="btn btn-link text-primary text-decoration-none d-block mx-auto">
           Forgotten Password?
-        </button>{" "}
+        </button>
       </p>
       <SocialLogin></SocialLogin>
     </div>
