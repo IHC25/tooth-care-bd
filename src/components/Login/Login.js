@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Button, Form, Spinner } from "react-bootstrap";
 import {
   useSendPasswordResetEmail,
@@ -15,7 +15,6 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,9 +28,13 @@ const Login = () => {
       </div>
     );
   }
-
+  let errorMsg;
   if (error) {
-    setErrorMessage(error?.message);
+    errorMsg = (
+      <div>
+        <p className="text-danger">{error?.message}</p>
+      </div>
+    );
   }
 
   if (user) {
@@ -86,9 +89,7 @@ const Login = () => {
           Login
         </Button>
       </Form>
-      <div>
-        <p className="text-danger">{errorMessage}</p>
-      </div>
+      {errorMsg}
       <p>
         New to Tooth Care?
         <Link

@@ -4,7 +4,7 @@ import banner from "../../../images/banner/banner.jpg";
 const Banner = () => {
   return (
     <div>
-      <div className="row g-0">
+      <div className="row g-0 my-2 py-3">
         <div className="col-12 col-lg-6">
           <div>
             <img className="img-fluid px-3" src={banner} alt="banner" />

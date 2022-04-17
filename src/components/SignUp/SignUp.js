@@ -21,8 +21,13 @@ const SignUp = () => {
     );
   }
 
+  let errorMsg;
   if (error) {
-    setErrorMessage(error?.message);
+    errorMsg = (
+      <div>
+        <p className="text-danger">{error?.message}</p>
+      </div>
+    );
   }
 
   if (user) {
@@ -87,6 +92,7 @@ const SignUp = () => {
       <div>
         <p className="text-danger">{errorMessage}</p>
       </div>
+      {errorMsg}
       <p>
         Already Have an Account?
         <Link
@@ -95,9 +101,6 @@ const SignUp = () => {
         >
           Login
         </Link>
-        <button className="btn btn-link text-primary text-decoration-none d-block mx-auto">
-          Forgotten Password?
-        </button>{" "}
       </p>
       <SocialLogin></SocialLogin>
     </div>

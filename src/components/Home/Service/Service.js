@@ -10,7 +10,7 @@ const Service = ({ service }) => {
     navigate(`/checkout/${id}`);
   };
   return (
-    <div className="col d-flex justify-content-center">
+    <div className="col d-flex justify-content-center rounded">
       <Card style={{ width: "18rem" }}>
         <Card.Img className="p-2 rounded" variant="top" src={img} />
         <Card.Body>
