@@ -82,8 +82,8 @@ const SignUp = () => {
         </Form.Group>
 
         <Button
-          variant="primary"
-          className="d-block w-50 mx-auto mb-2"
+          variant="none"
+          className="d-block w-50 mx-auto mb-2 custom-btn text-white fw-bold"
           type="submit"
         >
           Sign Up
