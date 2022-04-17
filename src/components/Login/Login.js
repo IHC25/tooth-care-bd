@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import { async } from "@firebase/util";
+import React, { useRef, useState } from "react";
 import { Button, Form, Spinner } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
+  const emailRef = useRef("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
@@ -38,6 +46,16 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
   };
 
+  const handleResetPassword = async () => {
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    if (email) {
+      toast("Sent email");
+    } else {
+      toast("Please Enter Your Email");
+    }
+  };
+
   return (
     <div className="container w-50 mx-auto my-5">
       <h2>Login</h2>
@@ -47,6 +65,7 @@ const Login = () => {
             name="email"
             type="email"
             placeholder="Enter email"
+            ref={emailRef}
             required
           />
         </Form.Group>
@@ -79,11 +98,15 @@ const Login = () => {
         >
           Create a New Account
         </Link>
-        <button className="btn btn-link text-primary text-decoration-none d-block mx-auto">
+        <button
+          onClick={handleResetPassword}
+          className="btn btn-link text-primary text-decoration-none d-block mx-auto"
+        >
           Forgotten Password?
         </button>
       </p>
       <SocialLogin></SocialLogin>
+      <ToastContainer />
     </div>
   );
 };
