@@ -19,7 +19,7 @@ const Service = ({ service }) => {
           <Card.Subtitle className="pb-5">Fee: ${price}</Card.Subtitle>
           <Button
             onClick={() => navigateToCheckout(id)}
-            className="position-absolute bottom-0 start-50 translate-middle-x mb-1"
+            className="position-absolute bottom-0 start-50 translate-middle-x mb-3"
             variant="info"
           >
             Book Now
