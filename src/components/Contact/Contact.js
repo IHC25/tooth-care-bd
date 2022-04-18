@@ -18,6 +18,7 @@ const Contact = () => {
           <div className="d-flex align-items-center justify-content-center ms-5">
             <img
               src="https://img.icons8.com/ios-filled/40/000000/new-post.png"
+              className="ps-2"
               alt="email icon"
             />
             <p className="text-info pt-3 ps-2">toothcare@gmail.com</p>
