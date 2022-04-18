@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBYpsbzzirOkVX8cH-gFS_Yt2mQXB-EJt4",
-  authDomain: "tooth-care-f261d.firebaseapp.com",
-  projectId: "tooth-care-f261d",
-  storageBucket: "tooth-care-f261d.appspot.com",
-  messagingSenderId: "969350395188",
-  appId: "1:969350395188:web:60e70510b12484ebc0e161",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase

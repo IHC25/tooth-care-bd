@@ -1,5 +1,7 @@
 # Tooth Care
 
+This is React App for dental services.
+
 ## Features
 
 - A Clear & Simple Homepage
