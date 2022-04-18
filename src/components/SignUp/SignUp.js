@@ -39,7 +39,6 @@ const SignUp = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     const confirmPassword = event.target.confirmPassword.value;
-    console.log(confirmPassword);
     if (password === confirmPassword) {
       createUserWithEmailAndPassword(email, password);
     } else {
@@ -82,8 +81,8 @@ const SignUp = () => {
         </Form.Group>
 
         <Button
-          variant="none"
-          className="d-block w-50 mx-auto mb-2 custom-btn text-white fw-bold"
+          variant="info"
+          className="d-block w-50 mx-auto mb-2 text-white fw-bold"
           type="submit"
         >
           Sign Up

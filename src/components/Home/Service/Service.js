@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import "./Service.css";
 
 const Service = ({ service }) => {
   const { img, name, description, price, id } = service;
@@ -20,8 +19,8 @@ const Service = ({ service }) => {
           <Card.Subtitle className="pb-5">Fee: ${price}</Card.Subtitle>
           <Button
             onClick={() => navigateToCheckout(id)}
-            className="position-absolute bottom-0 start-50 translate-middle-x mb-3 text-white custom-btn fw-bold"
-            variant="none"
+            className="position-absolute bottom-0 start-50 translate-middle-x mb-3 text-white fw-bold"
+            variant="info"
           >
             Book Now
           </Button>
